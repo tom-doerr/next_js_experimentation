@@ -1,15 +1,6 @@
-//'use client';
-
-
- 
-
-
-//import { useState } from 'react';
-import executeCommand from 'server_component';
+import { cookies } from 'next/headers';
  
 export default function AddToCart({ productId }) {
-
-  //const [commandOutput, setCommandOutput] = useState('');
   async function addItem(data) {
     'use server';
  
@@ -38,7 +29,6 @@ export default function AddToCart({ productId }) {
       exec(command, function(error, stdout, stderr) {
         console.log(stdout);
         });
-      return <div>stdout</div>;
     }
       
  
@@ -48,8 +38,7 @@ export default function AddToCart({ productId }) {
       <button type="submit">Add to Cart</button>
     </form>
       Execute command on server:
-    //<form action={executeCommand} onChange={(e) => setCommandOutput(e.target.value)}>
-    <form action={executeCommand} >
+    <form action={executeCommand}>
       <input name="command" type="text" style={{color: "black", width: "100%"}} />
       <button type="submit">Execute</button>
     </form>
